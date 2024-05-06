@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit list{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-12">
+        <div class="breadcrumbs mb-4"> <a href="#">Product</a>
+            <span class="mx-1">/</span>  <a href="{{ path('app_produit_index') }}">List</a>
+        </div>
+    </div>
+    {% for produit in produits %}
+    
+        <div class="col-4">
+            <div class="card article-card article-card-sm h-100">
+                <div class="card-body">
+                    <!-- Afficher l'image du produit -->
+                    {% if produit.image %}
+                        <img src="{{ asset('upload_image/' ~ produit.image) }}" alt="{{ produit.nom }}" class="card-img-top" style="max-height: 200px; object-fit: cover;">  <!-- Ajuster le style selon les besoins -->
+                    {% endif %}
+                    <p></p>
+                    <ul class="post-meta mb-2 ">
+                        <li> 
+                            <a href="#!">{{ produit.categorie ? produit.categorie.getNom() }}</a>
+                        </li>
+                    </ul>
+                    <h2 class="card-title pricing-card-title"> 
+                        <a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="post-title"> {{ produit.nom }} / {{ produit.prixUnitaire }} Ar </a>
+                    </h2>
+                    <p class="card-text">{{ produit.labelle }}</p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">No records found</h4>
+                </div>
+            </div>
+    {% endfor %}
+</div>
+<p></p>
+<a href="{{ path('app_produit_new') }}" class="btn btn-outline-success">Create new</a>
+{% endblock %}

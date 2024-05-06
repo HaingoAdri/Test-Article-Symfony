@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-12">
+        <div class="breadcrumbs mb-4"> <a href="#">Categorie</a>
+            <span class="mx-1">/</span>  <a href="{{ path('app_categorie_index') }}">Liste</a>
+            <span class="mx-1">/</span>  <a href="#!">{{ title|default('New') }}</a>
+        </div>
+    </div>
+    <div class="col-lg-6 mt-4 mt-lg-0">
+        <div class="card">
+            <div class="card-header">
+                {{ texte|default('Add categorie') }}
+            </div>
+            <div class="card-body">
+                {{ form_start(form) }}
+                    <div class="mb-3">
+                        {{ form_row(form.nom) }}
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-outline-primary" type="submit">{{ button_label|default('Create new categorie') }}</button>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

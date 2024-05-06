@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+        {% block head %}
+            <meta name="description" content="This is a page for search some article.">
+        {% endblock %}
+        <meta name="author" content="Haingo">
+        <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+        <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+        <meta name="robots" content="index"/>
+        <!-- theme meta -->
+        <meta name="theme-name" content="reporter" />
+
+        <!-- # Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <!-- # CSS Plugins -->
+        <link rel="stylesheet" href="{{ asset('plugins/bootstrap/bootstrap.min.css') }}">
+
+        <!-- # Main Style Sheet -->
+        <link rel="stylesheet" href="{{ asset('css/style.css ') }}">
+        <link rel="stylesheet" href="{{ asset('css/font.css ') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% include'header/header.html.twig' %}
+        <main>
+            <section class="section">
+                <div class="container">
+                    {% block body %}{% endblock %}
+                </div>
+            </section>
+        </main>
+    </body>
+    <!-- # JS Plugins -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
+
+    <!-- Main Script -->
+    <script src="{{ asset('js/script.js') }}"></script>
+</html>

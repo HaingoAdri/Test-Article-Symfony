@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Show Categorie {{ categorie.id }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+    <div class="col-12">
+        <div class="breadcrumbs mb-4"> <a href="#">Categorie</a>
+            <span class="mx-1">/</span>  <a href="{{ path('app_categorie_index') }}">Details</a>
+        </div>
+    </div>
+    <div class="col-12">
+        <h1>Details categorie</h1>
+        <div class="card border-success mb-3">
+            <div class="card-body">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ categorie.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nom</th>
+                            <td>{{ categorie.nom }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="{{ path('app_categorie_index') }} " class="btn btn-outline-dark">Back to list</a>
+<a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}" class="btn btn-outline-success">edit</a>
+<p></p>
+{{ include('categorie/_delete_form.html.twig') }}
+{% endblock %}

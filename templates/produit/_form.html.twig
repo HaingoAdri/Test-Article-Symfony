@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-12">
+        <div class="breadcrumbs mb-4"> <a href="#">Product</a>
+            <span class="mx-1">/</span>  <a href="{{ path('app_produit_index') }}">Liste</a>
+            <span class="mx-1">/</span>  <a href="#!">{{ title|default('New') }}</a>
+        </div>
+    </div>
+    <div class="col-lg-12 mt-4 mt-lg-0">
+        <div class="card">
+            <div class="card-header">
+                {{ texte|default('Add product') }}
+            </div>
+            <div class="card-body">
+                {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{ form_row(form.nom) }}
+                        </div>
+                        <div class="col-md-4">
+                            {{ form_row(form.quantite) }}
+                        </div>
+                        {# <p></p> #}
+                        <div class="col-md-4">
+                            {{ form_row(form.date) }}
+                        </div>
+                        <div class="col-md-4">
+                            {{ form_row(form.prix_unitaire) }}
+                        </div>
+                        {# <p></p> #}
+                        <div class="col-4">
+                            {{ form_row(form.categorie) }}
+                        </div>
+                        <div class="col-4">
+                            {{ form_row(form.image) }}
+                        </div>
+                        <div class="col-12">
+                            {{ form_row(form.labelle) }}
+                        </div>
+                    </div>
+                    <p></p>
+                    <button class="btn btn-outline-primary " type="submit">{{ button_label|default('Create new product') }}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

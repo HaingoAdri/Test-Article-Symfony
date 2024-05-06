@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Account{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% if is_granted('ROLE_ADMIN') %}
+        <h1>Hello {{ username }}, Hi admin! ✅</h1>
+    {% else %}
+        <h1>Hello {{ username }}! ✅</h1>
+    {% endif %}
+    <ul>
+        {% if app.user %}
+            <li>Name: {{ user.name }}</li>
+            <li>Email: {{ user.email }}</li>
+            <li>List of your product <code><a href="{{ path('app_produit_user' , { 'id': user.id }) }}">is here!</a></code></li>
+        {% endif %}
+        <li>Your template at <code><a href="{{ 'D:/Test/test-login/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}

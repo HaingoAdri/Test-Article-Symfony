@@ -1,0 +1,62 @@
+<header class="navigation">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light px-0">
+      <!-- Logo -->
+      <a class="navbar-brand py-0 order-1 mr-4" href="{{ path('app_home') }}">
+        <img loading="preload" decoding="async" width="150px" heigth="75px" class="img-fluid" src="{{ asset('images/logo.png') }}" alt="Reporter Hugo" wi>
+      </a>
+
+        <!-- Search Bar -->
+        <form class="search order-4 ml-auto mr-4" action="{{ path('form_submission') }}" method="post">
+          <div class="row">
+          <div class="col-md-9">
+            <input type="search" name="s" id="search-query" placeholder="Search..." autocomplete="on">
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-outline-success">🔍</button>
+          </div>
+          </div>
+        </form>
+
+      <!-- Navigation Links -->
+        <div class="collapse navbar-collapse order-3" id="main-navigation">
+            <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_produit_index') }}">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+        {% if app.user %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a href="{{ path('app_categorie_new') }}" class="nav-link">Categorie</a>
+                </li>
+            {% endif %}
+            </ul>
+        </div>
+        
+        <div class="collapse navbar-collapse order-5 justify-content-end" id="logout-navigation">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ path('app_logout') }}" class="btn btn-sm btn-outline-primary">
+                    Logout 
+                    </a> X
+                    <a href="{{ path('app_home') }}" class="btn btn-sm btn-outline-primary">Account</a>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+            </ul>
+        </div>
+            <div class="collapse navbar-collapse order-5 justify-content-end" id="login-navigation">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ path('app_login') }}" class="btn btn-sm btn-outline-primary">Login</a>
+                </li>
+                </ul>
+            </div>
+        {% endif %}
+    </nav>
+  </div>
+</header>
